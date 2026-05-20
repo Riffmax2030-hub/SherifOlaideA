@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "Organize portfolio files (HTML, CSS, JS separation)",
+  "description": "Split the single HTML file into index.html, styles.css, and script.js for better maintainability and best practices",
+  "activeForm": "Splitting files into organized structure",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

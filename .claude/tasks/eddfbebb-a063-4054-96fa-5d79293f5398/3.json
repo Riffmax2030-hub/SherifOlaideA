@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "Provide Git and Vercel deployment instructions",
+  "description": "Create clear step-by-step instructions for pushing to GitHub and deploying on Vercel",
+  "activeForm": "Deploying to Vercel",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

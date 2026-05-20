@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "Create README and config files",
+  "description": "Create README.md for project documentation, .gitignore for version control, and vercel.json for deployment config",
+  "activeForm": "Setting up project documentation and config",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

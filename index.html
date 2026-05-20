@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherif (Olaide) Akanmu — AI & Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+    <!-- Custom Cursor (Desktop only) -->
+    <div class="cursor-dot hidden lg:block"></div>
+    <div class="cursor-outline hidden lg:block"></div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="font-display font-bold text-xl tracking-tight magnetic">SA.</a>
+
+                <div class="hidden lg:flex items-center gap-10">
+                    <a href="#about" class="text-sm text-gray-600 hover:text-black link-underline magnetic">About</a>
+                    <a href="#experience" class="text-sm text-gray-600 hover:text-black link-underline magnetic">Experience</a>
+                    <a href="#skills" class="text-sm text-gray-600 hover:text-black link-underline magnetic">Skills</a>
+                    <a href="#projects" class="text-sm text-gray-600 hover:text-black link-underline magnetic">Projects</a>
+                    <a href="#education" class="text-sm text-gray-600 hover:text-black link-underline magnetic">Education</a>
+                    <a href="#contact" class="btn-primary px-6 py-2.5 text-sm font-medium magnetic">Get in Touch</a>
+                </div>
+                <button id="menuBtn" class="lg:hidden p-2 magnetic">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-white lg:hidden">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="#about" class="text-2xl font-display font-medium mobile-link">About</a>
+            <a href="#experience" class="text-2xl font-display font-medium mobile-link">Experience</a>
+            <a href="#skills" class="text-2xl font-display font-medium mobile-link">Skills</a>
+            <a href="#projects" class="text-2xl font-display font-medium mobile-link">Projects</a>
+            <a href="#education" class="text-2xl font-display font-medium mobile-link">Education</a>
+            <a href="#contact" class="btn-primary px-8 py-3 text-lg font-medium mt-4 mobile-link">Get in Touch</a>
+        </div>
+        <button id="closeMenu" class="absolute top-6 right-6 p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+    </div>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center pt-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 order-2 lg:order-1">
+                    <div class="mb-6 overflow-hidden">
+                        <p class="text-sm text-gray-500 uppercase tracking-widest reveal">AI & Full-Stack Developer</p>
+                    </div>
+                    <h1 class="hero-title font-display font-bold mb-8 reveal">
+                        Sherif<br>
+                        <span class="text-gray-400">(Olaide)</span><br>
+                        Akanmu
+                    </h1>
+                    <p class="hero-subtitle text-gray-600 max-w-xl mb-10 leading-relaxed reveal">
+                        Building intelligent, scalable digital systems combining AI, web development,
+                        and automation to solve real-world problems. Based in Doha, Qatar — Gulf focused.
+                    </p>
+                    <div class="flex flex-wrap gap-4 reveal">
+                        <a href="#projects" class="btn-primary px-8 py-4 text-sm font-medium magnetic">View My Work</a>
+                        <a href="#contact" class="btn-outline px-8 py-4 text-sm font-medium magnetic">Let's Talk</a>
+                    </div>
+
+                    <div class="mt-16 flex items-center gap-8 reveal">
+                        <div>
+                            <div class="text-3xl font-display font-bold counter-value" data-target="286">0</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">Connections</div>
+                        </div>
+                        <div class="w-px h-12 bg-gray-200"></div>
+                        <div>
+                            <div class="text-3xl font-display font-bold counter-value" data-target="8">0</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">Years Exp.</div>
+                        </div>
+                        <div class="w-px h-12 bg-gray-200"></div>
+                        <div>
+                            <div class="text-3xl font-display font-bold counter-value" data-target="296">0</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">Followers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 order-1 lg:order-2 reveal">
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop&crop=face"
+                                 alt="Sherif Akanmu"
+                                 class="w-full h-full object-cover img-grayscale">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white border border-gray-200 rounded-xl p-4 shadow-xl">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                                <span class="text-sm font-medium">Open to Work</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-1">Doha, Qatar · On-site · Hybrid · Remote</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-indicator">
+            <i data-lucide="arrow-down" class="w-5 h-5 text-gray-400"></i>
+        </div>
+    </section>
+    <!-- Marquee -->
+    <div class="py-8 border-y border-gray-100 bg-gray-50">
+        <div class="marquee-container">
+            <div class="marquee-content font-display text-6xl lg:text-8xl font-bold text-gray-100">
+                AI INTEGRATION · FULL-STACK DEVELOPMENT · SYSTEM DESIGN · PROBLEM SOLVING · HEALTHCARE TECH · BUSINESS AUTOMATION · AI-POWERED TOOLS ·
+                AI INTEGRATION · FULL-STACK DEVELOPMENT · SYSTEM DESIGN · PROBLEM SOLVING · HEALTHCARE TECH · BUSINESS AUTOMATION · AI-POWERED TOOLS ·
+            </div>
+        </div>
+    </div>
+    <!-- About Section -->
+    <section id="about" class="py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-4 reveal">
+                    <p class="text-sm text-gray-500 uppercase tracking-widest mb-4">About Me</p>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold leading-tight">
+                        AI-focused<br>Full-Stack<br>Developer
+                    </h2>
+                </div>
+                <div class="lg:col-span-8 reveal">
+                    <div class="prose prose-lg max-w-none">
+                        <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                            I'm an AI-focused Full-Stack Developer with Chemical Engineering and Public Health backgrounds,
+                            based in Doha, Qatar. I build intelligent, scalable digital systems combining AI, web development,
+                            and automation to solve real-world problems.
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-8 mt-12">
+                            <div class="border-t border-gray-200 pt-6">
+                                <h3 class="font-display font-bold text-lg mb-3">What I Do</h3>
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                                        <span>AI Integration: Claude API, LLM applications, AI automation workflows</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                                        <span>Full-Stack Web Development: React, Node.js, FastAPI, Next.js</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                                        <span>System Design: Architecting end-to-end solutions with cloud deployment</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                                        <span>Problem Solving: Healthcare tech, business automation, AI-powered tools</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-6">
+                                <h3 class="font-display font-bold text-lg mb-3">Open To</h3>
+                                <p class="text-gray-600 mb-4">
+                                    AI Developer | Full-Stack Engineer | Digital Transformation Roles in
+                                    Qatar, UAE, Saudi Arabia, and Global Tech
+                                </p>
+                                <p class="text-gray-600">
+                                    I'm actively seeking sponsored roles in the GCC region. Let's connect if
+                                    you're hiring for AI, engineering, or digital innovation teams.
+                                </p>
+                                <div class="mt-6 flex flex-wrap gap-2">
+                                    <span class="skill-tag px-4 py-2 text-sm rounded-full">On-site</span>
+                                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Hybrid</span>
+                                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Remote</span>
+                                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Visa: Open to sponsorship</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-20 reveal">
+                <p class="text-sm text-gray-500 uppercase tracking-widest mb-4">Career</p>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold">Experience</h2>
+            </div>
+            <div class="space-y-16">
+                <!-- Experience 1 -->
+                <div class="reveal">
+                    <div class="grid lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-3">
+                            <div class="text-sm text-gray-500 mb-1">Jul 2017 — Jun 2019</div>
+                            <div class="text-sm text-gray-400">2 years · Jalingo · On-site</div>
+                        </div>
+                        <div class="lg:col-span-9">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-lg bg-gray-200 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="activity" class="w-6 h-6 text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-xl">Monitoring And Evaluation Officer</h3>
+                                    <p class="text-gray-500">Institute of Human Virology Nigeria · Full-time</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Stakeholder coordination and meeting participation, Linear Regression and data analysis.
+                                Managed monitoring and evaluation frameworks for public health programs.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">Stakeholder Coordination</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">Linear Regression</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Analysis</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">+48 skills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-divider reveal"></div>
+                <!-- Experience 2 -->
+                <div class="reveal">
+                    <div class="grid lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-3">
+                            <div class="text-sm text-gray-500 mb-1">Jan 2016 — Dec 2016</div>
+                            <div class="text-sm text-gray-400">1 year · Port-harcourt · On-site</div>
+                        </div>
+                        <div class="lg:col-span-9">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-lg bg-gray-200 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="zap" class="w-6 h-6 text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-xl">Field Officer</h3>
+                                    <p class="text-gray-500">International Energy Services Limited · Internship</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Field Agent (Intern) — One-Year Supervised program. Teamwork in regulated industrial environments,
+                                Field Coordination and operational support in energy sector operations.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">Teamwork</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">Field Coordination</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">Industrial Operations</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">+52 skills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-20 reveal">
+                <p class="text-sm text-gray-500 uppercase tracking-widest mb-4">Expertise</p>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold">Skills &<br>Technologies</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="brain" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">01</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">AI Integration</h3>
+                    <p class="text-sm text-gray-500 mb-4">Claude API, LLM applications, AI automation workflows</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="95"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="layers" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">02</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">Full-Stack Development</h3>
+                    <p class="text-sm text-gray-500 mb-4">React, Node.js, FastAPI, Next.js</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="92"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="code" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">03</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">Python</h3>
+                    <p class="text-sm text-gray-500 mb-4">Programming Language & Data Processing</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="90"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="globe" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">04</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">JavaScript / React</h3>
+                    <p class="text-sm text-gray-500 mb-4">Frontend Development & UI Engineering</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="88"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="heart-pulse" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">05</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">Healthcare IT (HIT)</h3>
+                    <p class="text-sm text-gray-500 mb-4">Healthcare Information Technology Systems</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="85"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="plug" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">06</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">API Development</h3>
+                    <p class="text-sm text-gray-500 mb-4">Application Programming Interfaces & FastAPI AI</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="87"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">07</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">FX Trading</h3>
+                    <p class="text-sm text-gray-500 mb-4">Foreign Exchange Trading & Market Analysis</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="80"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="bot" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">08</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">Automation</h3>
+                    <p class="text-sm text-gray-500 mb-4">Business Process Automation & Workflows</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="90"></div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-black transition-colors">
+                            <i data-lucide="cpu" class="w-6 h-6 text-gray-600 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-400">09</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg mb-2">LLM Applications</h3>
+                    <p class="text-sm text-gray-500 mb-4">Large Language Model Integration & Applications</p>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" data-width="93"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional Skills Tags -->
+            <div class="mt-16 reveal">
+                <h3 class="font-display font-bold text-lg mb-6">Additional Skills</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Recruiting</span>
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">System Design</span>
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Cloud Deployment</span>
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Data Analysis</span>
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Linear Regression</span>
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Stakeholder Management</span>
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Field Coordination</span>
+                    <span class="skill-tag px-4 py-2 text-sm rounded-full">Teamwork</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-20 reveal">
+                <div>
+                    <p class="text-sm text-gray-500 uppercase tracking-widest mb-4">Portfolio</p>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold">Recent<br>Work</h2>
+                </div>
+                <p class="text-gray-500 max-w-md mt-6 lg:mt-0">Selected projects showcasing AI integration, full-stack development, and automation solutions.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card group reveal">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 mb-6">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+                             alt="RiffMax AI" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">AI Tool</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-xs text-gray-400">2024</span>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-2 group-hover:text-gray-600 transition-colors">RiffMax AI Website Builder</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                        Powered by Claude + Firecrawl for intelligent web design generation.
+                        Automated website creation with AI-driven content and layout optimization.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">Claude API</span>
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">Firecrawl</span>
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">React</span>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card group reveal">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 mb-6">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop"
+                             alt="Trading System" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">FinTech</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-xs text-gray-400">2024</span>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-2 group-hover:text-gray-600 transition-colors">Automated Trading Systems</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                        Data analysis and market intelligence tools for automated trading.
+                        Real-time signal processing and risk management algorithms.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Analysis</span>
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">API</span>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card group reveal">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 mb-6">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop"
+                             alt="Web Development" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Web App</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-xs text-gray-400">2024</span>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-2 group-hover:text-gray-600 transition-colors">Professional Web Applications</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                        Professional, responsive applications built with modern frameworks.
+                        Full-stack solutions with AI integration and cloud deployment.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">Next.js</span>
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">FastAPI</span>
+                        <span class="skill-tag px-3 py-1 text-xs rounded-full">Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education" class="py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-20 reveal">
+                <p class="text-sm text-gray-500 uppercase tracking-widest mb-4">Academic</p>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold">Education</h2>
+            </div>
+            <div class="space-y-16">
+                <!-- Education 1 -->
+                <div class="reveal">
+                    <div class="grid lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-3">
+                            <div class="text-sm text-gray-500 mb-1">Sep 2020 — Oct 2021</div>
+                            <div class="text-sm text-gray-400">Grade: 3.30</div>
+                        </div>
+                        <div class="lg:col-span-9">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="graduation-cap" class="w-6 h-6 text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-xl">Master of Public Health — MPH</h3>
+                                    <p class="text-gray-500">University of Benin (UNIBEN), Nigeria</p>
+                                    <p class="text-gray-400 text-sm mt-1">Community Health</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Planning, Monitoring and Evaluation (M&E) fundamentals.
+                                Advanced public health research with focus on community health interventions and data-driven health policy.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">M&E</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">Community Health</span>
+                                <span class="skill-tag px-3 py-1 text-xs rounded-full">+33 skills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-divider reveal"></div>
+                <!-- Education 2 -->
+                <div class="reveal">
+                    <div class="grid lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-3">
+                            <div class="text-sm text-gray-500 mb-1">Completed</div>
+                            <div class="text-sm text-gray-400">Bachelor's Degree</div>
+                        </div>
+                        <div class="lg:col-span-9">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="flask-conical" class="w-6 h-6 text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-xl">Bachelor of Technology — BTech</h3>
+                                    <p class="text-gray-500">Rivers State University of Science and Technology</p>
+                                    <p class="text-gray-400 text-sm mt-1">Chemical Engineering Technology/Technician</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                Foundation in chemical engineering principles, process design, and industrial operations.
+                                Technical background that informs systematic approach to software development and problem-solving.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="reveal">
+                    <p class="text-sm text-gray-500 uppercase tracking-widest mb-4">Contact</p>
+                    <h2 class="font-display text-4xl lg:text-6xl font-bold mb-8">Let's build<br>something<br>together.</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-12">
+                        I'm actively seeking sponsored roles in the GCC region.
+                        Let's connect if you're hiring for AI, engineering, or digital innovation teams.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gray-200 flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-gray-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">Location</div>
+                                <div class="font-medium">Doha, Qatar</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gray-200 flex items-center justify-center">
+                                <i data-lucide="briefcase" class="w-5 h-5 text-gray-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">Availability</div>
+                                <div class="font-medium text-green-600">Open to Work</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gray-200 flex items-center justify-center">
+                                <i data-lucide="globe" class="w-5 h-5 text-gray-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">Work Type</div>
+                                <div class="font-medium">On-site · Hybrid · Remote</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <div class="text-sm text-gray-500 mb-4">Connect</div>
+                        <div class="flex gap-4">
+                            <a href="https://www.linkedin.com/in/sherif-akanmu-a11b15394" target="_blank" class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all magnetic">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all magnetic">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all magnetic">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all magnetic">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <form class="space-y-8" onsubmit="event.preventDefault(); alert('Thank you! I will get back to you soon.');">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder=" " required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder=" ">
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" placeholder=" " required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-4 text-sm font-medium magnetic">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-display font-bold text-lg">SA.</span>
+                <span class="text-sm text-gray-400">© 2024 Sherif Akanmu. All rights reserved.</span>
+            </div>
+            <div class="flex gap-8 text-sm text-gray-500">
+                <a href="#" class="hover:text-black transition-colors">Privacy</a>
+                <a href="#" class="hover:text-black transition-colors">Terms</a>
+                <a href="#" class="hover:text-black transition-colors">Resume</a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
